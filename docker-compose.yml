@@ -1,0 +1,10 @@
+version: '2'
+services:
+   proxy:
+     build: .
+     volumes:
+       - ./logs/access.log:/var/log/varnish/access.log
+       - ./conf/default.vcl:/etc/varnish/default.vcl
+     ports:
+       - "8080:80"
+     restart: always
